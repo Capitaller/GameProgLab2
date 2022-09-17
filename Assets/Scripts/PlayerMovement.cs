@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] float jumpForce = 5f;
+    [SerializeField] float jumpForce = 10f;
     [SerializeField] float movementSpeed = 6f;
     [SerializeField] Scenes sc;
     public bool playerIsGrounded;
