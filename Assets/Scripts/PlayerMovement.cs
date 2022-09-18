@@ -79,11 +79,6 @@ public class PlayerMovement : MonoBehaviour
             sc.NextLevel("Scene2");
 
         }
-        //if (Coll.gameObject.tag == "Coin")
-        //{
-        //    sm.ScoreCount();
-        //    Destroy(gameObject);
 
-        //}
     }
 }
