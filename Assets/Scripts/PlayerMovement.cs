@@ -10,7 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 10f;
     [SerializeField] float movementSpeed = 6f;
     [SerializeField] Scenes sc;
+    private ScoreManager sm;
     public bool playerIsGrounded;
+   // private ScoreManager sm;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +32,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-
-            sc = FindObjectOfType<Scenes>();
-            sc.NextLevel("Scene2");
-            //SceneManager.LoadScene("Scene2");
-        }
+        
         var playerObject = GameObject.Find("Player");
-        // this line get the location XYZ.
         var playerPos = playerObject.transform.position;
         if (playerPos.y < -5)
         {
@@ -76,11 +71,19 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnTriggerEnter(Collider Coll)
     {
-        if (Coll.gameObject.tag == "Finish")
+        // sm = FindObjectOfType<ScoreManager>();
+        sm = FindObjectOfType<ScoreManager>();
+        if (Coll.gameObject.tag == "Finish" && sm.score >= 3)
         {
             sc = FindObjectOfType<Scenes>();
             sc.NextLevel("Scene2");
 
         }
+        //if (Coll.gameObject.tag == "Coin")
+        //{
+        //    sm.ScoreCount();
+        //    Destroy(gameObject);
+
+        //}
     }
 }
