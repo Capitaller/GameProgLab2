@@ -37,6 +37,16 @@ public class PlayerMovement : MonoBehaviour
             sc.NextLevel("Scene2");
             //SceneManager.LoadScene("Scene2");
         }
+        var playerObject = GameObject.Find("Player");
+        // this line get the location XYZ.
+        var playerPos = playerObject.transform.position;
+        if (playerPos.y < -5)
+        {
+            sc = FindObjectOfType<Scenes>();
+            sc.NextLevel("Scene1");
+
+        }
+        
     }
     void Jump()
     {
